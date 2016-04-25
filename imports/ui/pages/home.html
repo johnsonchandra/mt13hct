@@ -1,0 +1,47 @@
+<template name="home">
+
+  <div class="page lists-show">
+    <nav class="js-title-nav">
+      {{#momentum plugin="fade"}}
+ 
+          {{> hamburger}}
+
+          <h1 class="js-edit-list title-page">
+            <img src="images/logo_hct.png" width="100" style="margin-top: 20px;">
+            <span class="count-list" style="display: none;">999999999999999</span><!-- FIXME kelak harus notificationCount -->
+          </h1>
+
+          {{> phoneComponent}}
+
+      {{/momentum}}
+
+    </nav>
+
+
+    <div class="list-items">
+      <!-- FIXME taruh subscription di sini bila ada -->
+      {{#if todosReady}}
+        {{#each todo in todos}}
+          {{> Todos_item (todoArgs todo)}}
+        {{else}}
+          <div class="wrapper-message">
+            <div class="title-message">{{_ 'No tasks here'}}</div>
+            <div class="subtitle-message">{{_ 'Add new tasks using the field above'}}</div>
+          </div>
+        {{/each}}
+      {{else}}
+          <div class="wrapper-message">
+            <div class="title-message">{{_ 'Loading Empty State...'}}</div>
+            <div class="subtitle-message gap-bottom-small">
+              <h2 class="text-thin">{{_ 'Welcome to Helicity'}}</h2>
+            </div>
+
+            <!-- <button id="bookDate" type="submit" class="btn-primary">
+              {{_ 'Book Now'}}
+            </button> -->
+          </div>
+      {{/if}}
+    </div>
+  </div>
+
+</template>

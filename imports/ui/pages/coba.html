@@ -1,0 +1,18 @@
+<template name='coba'>
+
+  	
+	{{#if currentUser}}
+		{{> hamburger}}
+
+		<div id='Summary'>
+			<div id='ETD'>ETD: {{tanggal}}</div>
+			<div id='ETD_Time'>TIME: adfasdf</div>
+		</div>
+		
+		<div id='clndr'></div>
+
+	{{else}}
+		Please login first...
+	{{/if}}
+
+</template>
